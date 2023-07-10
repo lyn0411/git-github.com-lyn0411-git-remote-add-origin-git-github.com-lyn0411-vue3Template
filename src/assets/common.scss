@@ -1,0 +1,36 @@
+/* color palette from <https://github.com/vuejs/theme> */
+/*
+  使用插件 postcss-loader postcss-pxtorem
+  转换比例 192
+*/
+
+:root {
+  --vt-color:'';
+  --vt-background-color:'';
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+html,body,#app {
+  font-family: KaiTi;;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: hsl(210, 29%, 24%);
+  height: 100%;
+  width: 100%;
+}
+::-webkit-scrollbar {
+  width: 6Px;
+  height: 8Px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 5Px;
+  background-color: #eee;
+}
+  
+::-webkit-scrollbar-thumb {
+  border-radius: 5Px;
+  background:-webkit-linear-gradient(pink,skyblue);
+}
+  
