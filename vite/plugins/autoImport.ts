@@ -2,13 +2,15 @@ import { Plugin } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
-import { ElementPlusResolver, VueUseComponentsResolver, NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import { ElementPlusResolver, VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
 
 //自动导入插件
 export default (plugins: Plugin[], isBuild: boolean, env: ImportMetaEnv) => {
   plugins.push(
     AutoImport({
-      resolvers: [ElementPlusResolver(), 
+      resolvers: [ElementPlusResolver({
+        importStyle:'sass'
+      }), 
         IconsResolver({
           prefix: 'Icon',
         })
@@ -22,8 +24,9 @@ export default (plugins: Plugin[], isBuild: boolean, env: ImportMetaEnv) => {
     Components({
       resolvers: [
         //element-plus组件按需导入
-        ElementPlusResolver(),
-        NaiveUiResolver(),
+        ElementPlusResolver({
+          importStyle:'sass'
+        }),
         VueUseComponentsResolver(),
         //针对iconpark图标按需导入
         (componentName) => {

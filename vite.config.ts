@@ -28,7 +28,6 @@ export default defineConfig(({command, mode })=>{
       rollupOptions: {
         input:{
           index:resolve(__dirname,'index.html'),
-          viewer:resolve(__dirname,'public/viewer.html')
         },
         output: {
           manualChunks(id: string) {
@@ -53,11 +52,16 @@ export default defineConfig(({command, mode })=>{
       //     }
       // }
       proxy: {
+        '/api':{
+          target:'http://192.168.1.109:8080',
+          ws: true,
+          changeOrigin: true,
+        },
         '/guji/portal': {
           target: ipAddress,
           ws: true,
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/guji/, "")
+          // rewrite: (path) => path.replace(/^\/guji/, "")
         },
         '/admin': {
           target: ipAddress,
@@ -79,17 +83,31 @@ export default defineConfig(({command, mode })=>{
           ws: true,
           changeOrigin: true
         },
-        '/api': {
-          target: ipAddress,
+        // '/api': {
+        //   target: ipAddress,
+        //   ws: true,
+        //   changeOrigin: true
+        // },
+        '/img':{
+          target:'http://192.168.1.109:8080',
           ws: true,
-          changeOrigin: true
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/img/, "/img")
         },
         '/fileBookWeb': {
           target: ipAddress,
           ws: true,
           changeOrigin: true
         },
+
      }
     },
+    css:{
+      preprocessorOptions:{
+        scss:{
+          additionalData: '@use "@/assets/common.scss";',
+        }
+      }
+    }
   }
 })
