@@ -17,6 +17,11 @@ const routes:Array<RouteRecordRaw> = [
     path:'/home',
     name:'home',
     component:()=>import('@/views/home/index.vue')
+  },
+  {
+    path:'/index',
+    name:'index',
+    component:()=>import('@/views/index/index.vue')
   }
 ]
 const router = createRouter({
