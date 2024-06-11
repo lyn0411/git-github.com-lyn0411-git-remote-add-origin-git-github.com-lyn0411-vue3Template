@@ -14,7 +14,8 @@ export default defineConfig(({command, mode })=>{
     plugins: [...setupPlugins(isBuild, env),
        Icons({
         autoInstall: true,
-      })
+      }),
+
     ],
     resolve: {
       alias,
@@ -78,11 +79,11 @@ export default defineConfig(({command, mode })=>{
           ws: true,
           changeOrigin: true,
         },
-        '/banner': {
-          target:ipAddress,
-          ws: true,
-          changeOrigin: true
-        },
+        // '/banner': {
+        //   target:ipAddress,
+        //   ws: true,
+        //   changeOrigin: true
+        // },
         // '/api': {
         //   target: ipAddress,
         //   ws: true,

@@ -29,11 +29,9 @@ export default (plugins: Plugin[], isBuild: boolean, env: ImportMetaEnv) => {
         }),
         VueUseComponentsResolver(),
         //针对iconpark图标按需导入
-        (componentName) => {
-          if (componentName.startsWith('Icon')) {
-            return { name: componentName.slice(4), from: '@icon-park/vue-next' }
-          }
-        },
+        IconsResolver({
+          enabledCollections: ['ep'],
+        }),
       ],
       extensions: ['vue', 'tsx'],
       dirs: ['src/components'],

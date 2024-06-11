@@ -19,7 +19,7 @@ module.exports = {
         propList: ['*'], // 可以从px更改为rem的属性  感叹号开头的不转换
         replace: true, // 转换成 rem 以后，不保留原来的 px 单位属性
         mediaQuery: true, // 允许在媒体查询中转换px。
-        minPixelValue: 18, // 设置要替换的最小像素值。
+        minPixelValue: 8, // 设置要替换的最小像素值。
         exclude: /node_modules/i // 排除 node_modules 文件(node_modules 内文件禁止转换)
       }
     }
