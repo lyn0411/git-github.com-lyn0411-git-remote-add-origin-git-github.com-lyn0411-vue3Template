@@ -151,7 +151,7 @@ onMounted(() => {
             .fenlei{
                 position: absolute;
                 font-size: 20px;
-                color: red;
+                color: black;
                 left: 50%;
                 top: 20%;
                 transform: translate(-50%,-50%);
